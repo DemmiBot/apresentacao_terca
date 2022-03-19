@@ -82,7 +82,9 @@ int main() {
                 printArray(arr2, 10);
 
                 int i, tamanhoArray;
-                printf("\n\nConstruir array com input: ");
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nConstruir array com input: ");
+                printf("\n------------------------------------------------------------------");
                 printf("\n\nInsira o tamanho do array: ");
                 scanf("%d", &tamanhoArray);
                 int arr3[tamanhoArray];
@@ -99,7 +101,9 @@ int main() {
 
                 int pos;
 
-                printf("\n\nRemocao de um elemento do vetor por elemento: ");
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nRemocao de um elemento do vetor: ");
+                printf("\n------------------------------------------------------------------");
 
                 printf("\n\n");
                 printArray(arr3, tamanhoArray);
@@ -113,6 +117,7 @@ int main() {
                         arr3[i-1] = arr3[i];
                     }
                 } else {
+                    printf("\nPosicao invalida!: ");
                     break;
                 }
 
@@ -120,7 +125,9 @@ int main() {
                 printArray(arr3, tamanhoArray);
                 printf(" -Array 3");
 
-                printf("\n\nInsercao de um item no array por posicao: ");
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nInsercao de um item no array por posicao: ");
+                printf("\n------------------------------------------------------------------");
 
                 printf("\n\n");
                 printArray(arr3, tamanhoArray);
@@ -129,15 +136,15 @@ int main() {
                 printf("\n\nInsira a posicao em que deseja inserir o valor: ");
                 scanf("%d", &pos);
 
-                /*Precisa fazer os valores serem empurrados para frente*/
-
-                /*if(pos>0 && pos<=tamanhoArray){
-                    for(i = pos-1; i < tamanhoArray; i++) {
-                        arr3[i+1] = arr3[i];
+                /*Faz os valores serem empurrados para frente*/
+                if(pos>0 && pos<=tamanhoArray){
+                    for(i = tamanhoArray-1; i > pos-1; i--) {
+                        arr3[i] = arr3[i-1];
                     }
                 } else {
+                    printf("\nPosicao invalida!: ");
                     break;
-                }*/
+                }
 
                 printf("\nInsira o valor a ser inserido: ");
                 scanf("%d", &arr3[pos-1]);
@@ -146,10 +153,25 @@ int main() {
                 printArray(arr3, tamanhoArray);
                 printf(" -Array 3");
 
-                /*-Inserção de um elemento NO VETOR;*/
+
                 /*-Remoção de um elemento NO VETOR;*/
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nRemocao de um elemento no array: ");
+                printf("\n------------------------------------------------------------------");
+
                 /*-Acesso de um VETOR;*/
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nAcesso de um array: ");
+                printf("\n------------------------------------------------------------------");
+
                 /*-Buscar no Vetor;*/
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nBusca em um array: ");
+                printf("\n------------------------------------------------------------------");
+
 
             }
             break;

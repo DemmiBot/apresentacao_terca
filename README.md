@@ -9,7 +9,7 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 :heavy_check_mark: Remoção de um VETOR/ Elemento  
 
-Inserção de um elemento NO VETOR  
+:heavy_check_mark: Inserção de um elemento NO VETOR  
 
 Remoção de um elemento NO VETOR  
 
