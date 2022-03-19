@@ -37,9 +37,9 @@ Buscar NA MATRIZ
 
 # Operações com PONTEIRO  
 
-Alocação dinâmica de memória  
+:heavy_check_mark: Alocação dinâmica de memória  
 
-Manipulação de VETOR.  
+:heavy_check_mark: Manipulação de VETOR.  
 
 Para retornar mais de um valor em uma função.  
 
