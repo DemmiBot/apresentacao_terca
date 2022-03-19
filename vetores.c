@@ -85,6 +85,7 @@ int main() {
                 printf("\n\n\n------------------------------------------------------------------");
                 printf("\nConstruir array com input: ");
                 printf("\n------------------------------------------------------------------");
+
                 printf("\n\nInsira o tamanho do array: ");
                 scanf("%d", &tamanhoArray);
                 int arr3[tamanhoArray];
