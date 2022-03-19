@@ -3,7 +3,7 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 # Operações com Vetor  
 
-Criação de um Vetor  
+:heavy_check_mark: Criação de um Vetor  
 
 Inicialização de um VETOR  
 
