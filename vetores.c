@@ -12,27 +12,29 @@ void readArray(int *arr, int size) {
     }
 }
 
-void populateArray(int arr[], int size) {
+void populateArray(int arr[], int size, int startingPoint) {
     int i;
     for(i=0;i<size;i++) {
-        arr[i] = i+1;
+        arr[i] = i+startingPoint;
     }
 }
+
 
 /*https://stackoverflow.com/questions/5630478/printing-arrays-in-separate-function-in-c*/
 void printArray(int arr[], int size) {
     int i;
     for(i=0;i<size;i++) {
-        printf("%d ", arr[i]);
+        printf("[%d]", arr[i]);
     }
 }
 
-void printArrayFloat(float arr[], int size){
+/* void printArrayFloat(float arr[], int size){
     int i;
     for(i=0;i<size;i++){
         printf("%.2f ", arr[i]);
     }
-}
+} */
+
 /*void print2DArray(int *a, int rows, int columns){
     int i, j;
     for(i=0;i<rows*columns;i++){
@@ -72,38 +74,87 @@ int main() {
                 printf("\n");
 
                 arr[10] = 12; /* UNDEFINED, qualquer coisa pode ocorrer, até a ilusão de funcionar */
-                printf("%d\n\n", arr[10]);
+                printf("\nAcessando valor fora do vetor: %d\n\n", arr[10]);
 
                 int arr2[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}; /*Hardcode*/
 
                 printf("Array arr2: ");
                 printArray(arr2, 10);
-                printf("\n");
 
-                int i;
-                for(i=0;i<10;i++) {
-                    arr[i] = -i;
+                int i, tamanhoArray;
+                printf("\n\nConstruir array com input: ");
+                printf("\n\nInsira o tamanho do array: ");
+                scanf("%d", &tamanhoArray);
+                int arr3[tamanhoArray];
+
+                for(i=0;i<tamanhoArray;i++) {
+                    printf("Insira valor %d: ", i+1);
+                    scanf("%d", &arr3[i]);
                 }
 
-                printf("Array arr: ");
-                printArray(arr, 10);
+                printf("\nArray arr3: ");
+                printArray(arr3, tamanhoArray);
 
-                /*-Remoção de um vetor / Elemento;*/
+                /*-Remoção de um vetor / (por?) Elemento;*/
 
+                int pos;
+
+                printf("\n\nRemocao de um elemento do vetor por elemento: ");
+
+                printf("\n\n");
+                printArray(arr3, tamanhoArray);
+                printf(" -Array 3\n");
+
+                printf("\nInsira a posicao do item a ser removido (1, 2, 3, 4..): ");
+                scanf("%d", &pos);
+
+                if(pos>0 && pos<=tamanhoArray){
+                    for(i = pos; i < tamanhoArray; i++) {
+                        arr3[i-1] = arr3[i];
+                    }
+                } else {
+                    break;
+                }
+
+                printf("\n");
+                printArray(arr3, tamanhoArray);
+                printf(" -Array 3");
+
+                printf("\n\nInsercao de um item no array por posicao: ");
+
+                printf("\n\n");
+                printArray(arr3, tamanhoArray);
+                printf(" -Array 3");
+
+                printf("\n\nInsira a posicao em que deseja inserir o valor: ");
+                scanf("%d", &pos);
+
+                /*Precisa fazer os valores serem empurrados para frente*/
+
+                /*if(pos>0 && pos<=tamanhoArray){
+                    for(i = pos-1; i < tamanhoArray; i++) {
+                        arr3[i+1] = arr3[i];
+                    }
+                } else {
+                    break;
+                }*/
+
+                printf("\nInsira o valor a ser inserido: ");
+                scanf("%d", &arr3[pos-1]);
+
+                printf("\n");
+                printArray(arr3, tamanhoArray);
+                printf(" -Array 3");
 
                 /*-Inserção de um elemento NO VETOR;*/
                 /*-Remoção de um elemento NO VETOR;*/
                 /*-Acesso de um VETOR;*/
                 /*-Buscar no Vetor;*/
 
-
             }
             break;
         }
 
     } while (opt != 0);
-
-
-
 
 }

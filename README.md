@@ -1,13 +1,13 @@
 # apresentacao_terca
-Repositório para organização da apresentação de Estrutura de Dados e Algoritmos 2
+Repositório para organização da apresentação de Estrutura de Dados e Algoritmos 2  
 
 # Operações com Vetor  
 
 :heavy_check_mark: Criação de um Vetor  
 
-Inicialização de um VETOR  
+:heavy_check_mark: Inicialização de um VETOR  
 
-Remoção de um VETOR/ Elemento  
+:heavy_check_mark: Remoção de um VETOR/ Elemento  
 
 Inserção de um elemento NO VETOR  
 
