@@ -13,25 +13,25 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 :heavy_check_mark: Inserção de um elemento NO VETOR  
 
-Remoção de um elemento NO VETOR  
+Remoção de um elemento NO VETOR -David Lukas  
 
-Acesso de um VETOR  
+Acesso de um VETOR -David Lukas  
 
-Buscar no VETOR  
+Buscar no VETOR -David Lukas  
 
 # Operações com MATRIZ  
 
-Criação de uma MATRIZ  
+Criação de uma MATRIZ -Samuel Bruce/Karla Juliane  
 
-Inicialização de uma MATRIZ  
+Inicialização de uma MATRIZ -Samuel Bruce/Karla Juliane  
 
-Remoção de uma MATRIZ E Elemento  
+Remoção de uma MATRIZ E Elemento -Samuel Bruce/Karla Juliane  
 
-Inserção de um elemento NA MATRIZ  
+Inserção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
-Remoção de um elemento NA MATRIZ  
+Remoção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
-Acesso de um elemento NA MATRIZ  
+Acesso de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
 Buscar NA MATRIZ  
 
@@ -41,13 +41,13 @@ Buscar NA MATRIZ
 
 :heavy_check_mark: Manipulação de VETOR.  
 
-Para retornar mais de um valor em uma função.  
+Para retornar mais de um valor em uma função. -Alleck Luka  
 
-Referência para listas, pilhas,  
+Referência para listas, pilhas, -Alleck Luka  
 
 # Exemplos:  
 
 Operações com Alocação Estática  
-e Alocação dinâmica  
+e Alocação dinâmica -Samuel Kevin/Gabriel Felix  
 
-Estrutura de Dados encadeadas.  
+Estrutura de Dados encadeadas. -Samuel Kevin/Gabriel Felix  
