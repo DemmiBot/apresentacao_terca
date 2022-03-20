@@ -35,15 +35,15 @@ Acesso de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane
 
 Buscar NA MATRIZ  
 
-# Operações com PONTEIRO  
+# :heavy_check_mark: Operações com PONTEIRO  
 
 :heavy_check_mark: Alocação dinâmica de memória  
 
 :heavy_check_mark: Manipulação de VETOR.  
 
-Para retornar mais de um valor em uma função. -Alleck Luka  
+:heavy_check_mark: Para retornar mais de um valor em uma função. -Alleck Luka  
 
-Referência para listas, pilhas, -Alleck Luka  
+:heavy_check_mark: Referência para listas, pilhas, -Alleck Luka  
 
 # Exemplos:  
 
