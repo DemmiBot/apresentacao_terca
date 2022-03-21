@@ -1,0 +1,62 @@
+/*
+Alocação Estática
+*/
+
+#include <stdio.h>
+
+int main()
+{
+int a[10], i, u = 0;
+
+    for (i = 0; i <= 9; i++)
+    {
+    printf("\nDigite um numero: ");
+    scanf("%d", &a[i]);
+    }
+    
+    while (u <= 9)
+    {
+    printf("\n%d", a[u]);
+    u++;
+    }
+}
+/*
+Alocação dinâmica
+
+    sizeof(tipo);
+    free(variavel);
+    (tipo)malloc(quantidade*tamanho em bytes);
+    (tipo)=calloc(quantidade,tamanho em bytes);
+
+*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main()
+{
+	char *n[50];
+	int a, i, tam;
+
+	printf("Quantos nomes? ");
+	scanf("%d", &a);
+	char *nome[a];
+
+	for (i = 1; i <= a; i++)
+	{
+		fflush(stdin);
+		printf("Digite seu nome: ");
+		gets(n);
+		tam = strlen(n);
+		nome[i] = malloc((tam + 1) *sizeof(char));
+		strcpy(nome[i], n);
+
+	}
+
+	free(n);
+
+	for (i = 1; i <= a; i++)
+	{
+		printf("\n%s", nome[i]);
+	}
+}
