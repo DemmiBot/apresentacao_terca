@@ -49,6 +49,7 @@ int arrayIsEqual(int *array1, int arraySize1, int *array2, int arraySize2) {
     if(arraySize1 != arraySize2)
         return 0;
 
+
     for(i=0;i<arraySize1;i++) {
         if(array1[i] != array2[i])
             return 0;

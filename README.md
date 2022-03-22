@@ -13,27 +13,27 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 :heavy_check_mark: Inserção de um elemento NO VETOR  
 
-Remoção de um elemento NO VETOR -David Lukas  
+:heavy_check_mark: Remoção de um elemento NO VETOR -David Lukas  
 
-Acesso de um VETOR -David Lukas  
+:heavy_check_mark: Acesso de um VETOR -David Lukas  
 
-Buscar no VETOR -David Lukas  
+:heavy_check_mark: Buscar no VETOR -David Lukas  
 
 # Operações com MATRIZ  
 
-Criação de uma MATRIZ -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Criação de uma MATRIZ -Samuel Bruce/Karla Juliane  
 
-Inicialização de uma MATRIZ -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Inicialização de uma MATRIZ -Samuel Bruce/Karla Juliane  
 
-Remoção de uma MATRIZ E Elemento -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Remoção de uma MATRIZ E Elemento -Samuel Bruce/Karla Juliane  
 
-Inserção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Inserção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
-Remoção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Remoção de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
-Acesso de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
+:heavy_check_mark: Acesso de um elemento NA MATRIZ -Samuel Bruce/Karla Juliane  
 
-Buscar NA MATRIZ  
+:heavy_check_mark: Buscar NA MATRIZ  
 
 # :heavy_check_mark: Operações com PONTEIRO  
 
@@ -47,7 +47,7 @@ Buscar NA MATRIZ
 
 # Exemplos:  
 
-Operações com Alocação Estática  
+:heavy_check_mark: Operações com Alocação Estática  
 e Alocação dinâmica -Samuel Kevin/Gabriel Felix  
 
-Estrutura de Dados encadeadas. -Samuel Kevin/Gabriel Felix  
+:heavy_check_mark: Estrutura de Dados encadeadas. -Samuel Kevin/Gabriel Felix  

@@ -14,12 +14,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /*https://www.learn-c.org/en/Linked_lists*/
 typedef struct node{
     int value;                  /*Valor guardado em dada posicao*/
     struct node * next;         /*ponteiro para a proxima posicao*/
 }node_t;                        /*Nome padrao*/
+
+
+typedef struct ponto{
+	int x, y;
+	struct ponto * proximo;
+}t_ponto;
+
 
 void push(node_t **head, int val) {
     node_t * new_node;                              /*Cria e*/
@@ -57,10 +65,10 @@ void freeList(node_t* head) {
 }
 
 void printList(node_t *head) {
-    node_t *current = head;
-    while(current !=NULL){
-        printf("[%d]", current->value);
-        current = current->next;
+    node_t *atual = head;
+    while(atual !=NULL){
+        printf("[%d]", atual->value);
+        atual = atual->next;
     }
 }
 
@@ -99,7 +107,7 @@ int main(){
                 printf("\n------------------------------------------------------------------");
 
                 int arr[10]; /*Criacao do vetor*/
-                printf("Array arr (lixo de memoria): ");
+                printf("\nArray arr (lixo de memoria): ");
                 printArray(arr, 10);
                 printf("\n");
 
@@ -128,28 +136,26 @@ int main(){
                 printf("\nArray arr3: ");
                 printArray(arr3, tamanhoArray);
 
-                /*-Remoção de um vetor / (por?) Elemento;*/
-
-                int pos;
-
                 printf("\n\n\n------------------------------------------------------------------");
                 printf("\nRemocao de um elemento do vetor: ");
                 printf("\n------------------------------------------------------------------");
+
+                int elemento, j;
 
                 printf("\n\n");
                 printArray(arr3, tamanhoArray);
                 printf(" -Array 3\n");
 
-                printf("\nInsira a posicao do item a ser removido (1, 2, 3, 4..): ");
-                scanf("%d", &pos);
+                printf("\nInsira o elemento a ser removido : ");
+                scanf("%d", &elemento);
 
-                if(pos>0 && pos<=tamanhoArray){
-                    for(i = pos; i < tamanhoArray; i++) {
-                        arr3[i-1] = arr3[i];
+
+                for(i=0;i<tamanhoArray;i++){
+                    if(arr3[i]==elemento){
+                        for(j = i+1; j < tamanhoArray; j++) { /*Empurra elementos para a esquerda*/
+                            arr3[j-1] = arr3[j];
+                        }
                     }
-                } else {
-                    printf("\nPosicao invalida!: ");
-                    break;
                 }
 
                 printf("\n");
@@ -160,16 +166,17 @@ int main(){
                 printf("\nInsercao de um item no array por posicao: ");
                 printf("\n------------------------------------------------------------------");
 
+                int posicao;
+
                 printf("\n\n");
                 printArray(arr3, tamanhoArray);
-                printf(" -Array 3");
 
                 printf("\n\nInsira a posicao em que deseja inserir o valor: ");
-                scanf("%d", &pos);
+                scanf("%d", &posicao);
 
                 /*Faz os valores serem empurrados para frente*/
-                if(pos>0 && pos<=tamanhoArray){
-                    for(i = tamanhoArray-1; i > pos-1; i--) {
+                if(posicao>0 && posicao<=tamanhoArray){
+                    for(i = tamanhoArray-1; i > posicao-1; i--) {
                         arr3[i] = arr3[i-1];
                     }
                 } else {
@@ -178,12 +185,10 @@ int main(){
                 }
 
                 printf("\nInsira o valor a ser inserido: ");
-                scanf("%d", &arr3[pos-1]);
+                scanf("%d", &arr3[posicao-1]);
 
                 printf("\n");
                 printArray(arr3, tamanhoArray);
-                printf(" -Array 3");
-
 
                 /*-Remoção de um elemento NO VETOR;*/
 
@@ -191,21 +196,204 @@ int main(){
                 printf("\nRemocao de um elemento no array: ");
                 printf("\n------------------------------------------------------------------");
 
-                /*-Acesso de um VETOR;*/
+                int vet[5];
+
+                /*criacao do vetor de 5 posicoes com elementos aleatorios*/
+
+                srand(time(NULL));
+
+                for(i=0; i<5; i++){
+                    vet[i] = rand() % 10;
+                }
+
+                printf("\nVetor: ");
+                for(i=0; i<5; i++){
+                    printf("%d, ", vet[i]);
+                }
+
+                printf("\n");
+
+                printf("Insira qual elemento deseja remover:");
+                scanf("%d", &posicao);
+
+                for(i = 0; i < 5; i++){
+                    vet[posicao-1] = -1;
+                    printf("%d, ", vet[i]);
+                }
 
                 printf("\n\n\n------------------------------------------------------------------");
                 printf("\nAcesso de um array: ");
                 printf("\n------------------------------------------------------------------");
 
-                /*-Buscar no Vetor;*/
+                int vet2[5];
+
+                printf("\nVetor: ");
+                for(i=0; i < 5; i++){
+                    vet2[i] = rand() % 10;
+                    printf("%d, ", vet2[i]);
+                }
+
+                printf("\nInsira o indice a ser buscado:");
+                scanf("%d", &elemento);
+
+                int e;
+
+                for(i=0; i< 5; i++){
+                    if(vet2[elemento] == vet[i]){
+                        e = vet2[elemento-1];
+                    }
+                }
+
+                printf("\nO Indice %d guarda o elemento %d", elemento, e);
 
                 printf("\n\n\n------------------------------------------------------------------");
                 printf("\nBusca em um array: ");
                 printf("\n------------------------------------------------------------------");
+
+                int vet3[10];
+                int n=0, x;
+
+                printf("\nVetor: ");
+
+                for(i=0; i<10; i++){
+                    vet[i] = rand() % 20;
+                    printf("%d, ", vet[i]);
+                }
+
+                printf("\nInsira o valor do elemento a ser buscado:");
+                scanf("%d", &x);
+
+                for(i=0; i<10; i++){
+                    if( vet[i] == x){
+                        n=1;
+                        printf("\nO elemento %d está no indice %d", x, i+1);
+                    }
+                }
+
+                if(n == 0){
+                    printf("\nO elemento não está listado no vetor :(");
+                }
+
             }
             break;
         case 2:
             {
+                /*
+                - 1 Criação de uma MATRIZ DONE
+                - 2 Inicialização de uma MATRIZ DONE
+                - 3 Remoção de uma MATRIZ E Elemento
+                - 4 Inserção de um elemento NA MATRIZ DONE
+                - 5 Remoção de um elemento NA MATRIZ
+                - 6 Acesso de um elemento NA MATRIZ DONE
+                - 7 Buscar NA  MATRIZ DONE
+                */
+
+                /*1 Criação*/
+                int matriz[3][3];
+
+                int i, j, buscar, cont;
+
+                printf ("\n\nMATRIZ IMPRESSA\n");
+                for (i=0; i<3; i++){
+                    for(j=0; j<3; j++){
+                        printf("[%d]", matriz[i][j]);
+                    }
+                    printf("\n");
+                }
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nInsercao de valores em uma Matriz: ");
+                printf("\n------------------------------------------------------------------");
+
+                printf ("\nInsira os valores para cada posiçao da matriz: \n");
+                for (i=0; i<3; i++){
+                    for(j=0; j<3; j++){
+                        printf("Posiçao [%d] [%d]: ", i, j);
+                        scanf("%d", &matriz [i][j]);
+                    }
+                }
+
+                /* Impressão da Matriz*/
+                printf ("\n\nMATRIZ IMPRESSA\n");
+                for (i=0; i<3; i++){
+                    for(j=0; j<3; j++){
+                        printf("[%d]", matriz[i][j]);
+                    }
+                    printf("\n");
+                }
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nRemocao de um elemento da matriz por valor: ");
+                printf("\n------------------------------------------------------------------");
+
+                printf("\nInsira valor a ser removido (todos os valores iguais serao removidos!): ");
+                scanf("%d", &buscar);
+
+                for(j=0; j<3; j++){
+                    for(i=0; i<3; i++){
+                        if(buscar==matriz[i][j]){
+                            printf("\nPosicao [%d][%d], deletando... Pronto!", i, j, matriz [i][j]);
+                            matriz[i][j] = 0;
+                        }
+                    }
+                }
+
+                printf ("\n\nMATRIZ IMPRESSA\n");
+                for (i=0; i<3; i++){
+                    printf("(%d)  ", i);
+                    for(j=0; j<3; j++){
+                        printf("[%d]", matriz[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("\n     (0)(1)(2)");
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nRemocao de um elemento da matriz por indice: ");
+                printf("\n------------------------------------------------------------------");
+
+                printf("\nInsira a linha do elemento a ser removido: ");
+                scanf("%d", &i);
+                printf("\nInsira a coluna do elemento a ser removido: ");
+                scanf("%d", &j);
+
+                printf("%d", matriz[i][j]);
+
+                matriz[i][j] = 0;
+
+                printf ("\n\nMATRIZ IMPRESSA\n");
+                for (i=0; i<3; i++){
+                    for(j=0; j<3; j++){
+                        printf("[%d]", matriz[i][j]);
+                    }
+                    printf("\n");
+                }
+
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nAcessando um Elemento na Matriz: ");
+                printf("\n------------------------------------------------------------------");
+
+                printf("\n Acessando o valor da Linha 1 - Coluna 2: %d", matriz [0][1]);
+
+                /*7 Buscar NA  MATRIZ*/
+                printf("\n\n\n------------------------------------------------------------------");
+                printf("\nBuscar na Matriz: ");
+                printf("\n------------------------------------------------------------------");
+
+                printf("\n\n Digite o valor a ser procurado na Matriz: ");
+                scanf("%d", &buscar);
+
+                for(j=0; j<3; j++){
+                    for(i=0; i<3; i++){
+                        if(buscar==matriz[i][j]){
+                            cont=1;
+                            printf("\nPosicao [%d][%d] = %d", i, j, matriz [i][j]);
+                        }
+                    }
+                }
+                if(cont==0){
+                    printf ("\n\n O valor %d não foi encontrado na Matriz",buscar);
+                }
 
             }
             break;
@@ -295,11 +483,13 @@ int main(){
                             for(i=0;i<4;i++) {
                                 printf("[%d]", retornar[i]);
                             }
+
                         }
                         break;
                     case 3:
                         {
                             /*Referência para listas, pilhas, -Alleck Luka*/
+
                             /*Existe uma sobrecarga associada ao uso de arrays dinamicos, dado que se torna necessario realocar memoria e
                             copiar os dados ja existentes novamente. */
 
@@ -310,47 +500,47 @@ int main(){
                             }node_t;
                             */
 
-                            node_t* head = NULL; /*Inicia a lista*/
+                            node_t* head = NULL;                            /*Inicia a lista*/
 
-                            head = (node_t*)malloc(sizeof(node_t)); /*Lembrando que malloc retorna um ponteiro void, que vira node_t */
-                            if(head==NULL)
+                            head = (node_t*)malloc(sizeof(node_t));         /*Lembrando que malloc retorna um ponteiro void, que vira node_t */
+
+                            if(head==NULL)                                  /*Sempre checar*/
                                 exit(-1);
 
-                            head->value = 10;
+                            head->value = 10;                               /*Isso é feito com funcoes, exemplo cru*/
 
                             head->next = (node_t*)malloc(sizeof(node_t));
+
                             if(head->next==NULL)
                                 exit(-1);
 
                             head->next->value = 11;
                             head->next->next = NULL;
 
-                            node_t * curr = head;
+                            node_t * atual = head;
 
-                            printf("Lista: ");
-                            printf("[%d]", head->value);
-                            printf("[%d]", head->next->value);
+                            printf("Lista: [%d] [%d]", head->value, head->next->value);
 
                             printf("\nBase da funcao para imprimir a lista encadeada: \nLista: ");
 
-                            while(curr !=NULL){
-                                printf("[%d]", curr->value);
-                                curr = curr->next;
+                            while(atual !=NULL){
+                                printf("[%d]", atual->value);
+                                atual = atual->next;
                             }
 
                             pop(&head);
                             pop(&head);
 
-                            int n;
+                            int numero;
 
                             printf("\n\nInserindo valores com o metodo push: \n");
                             do{
                                 printf("Digite um numero: ");
-                                scanf("%d", &n);
-                                push(&head, n);
+                                scanf("%d", &numero);
+                                push(&head, numero);
                                 printf("Deseja inserir outro ?: (Y=1, N=0): ");
-                                scanf("%d", &n);
-                            } while(n!=0);
+                                scanf("%d", &numero);
+                            } while(numero!=0);
 
                             printf("\nLista: ");
                             printList(head);
@@ -361,8 +551,100 @@ int main(){
 
                             freeList(head);
                             free(head);
+
                         }
                         break;
+                    case 4:
+                        {
+                            /*Exemplo de alocacao dinamica com string*/
+                            char *n[50];
+                            int tamArray, i, tam;
+
+                            printf("Quantos nomes? ");
+                            scanf("%d", &tamArray);
+
+                            char *nome[tamArray];
+                            for (i = 0; i < tamArray; i++)
+                            {
+                                fflush(stdin);
+                                printf("Digite seu nome: ");
+                                gets(n);
+                                tam = strlen(n);
+                                nome[i] = malloc((tam + 1) *sizeof(char));
+
+                                printf("MALLOC((%d)*sizeof(char))\n", tam+1); /* Ilustrativo */
+
+                                if(nome[i]==NULL){
+                                    printf("NOT ALLOCATED!");
+                                    exit(-1);
+                                }
+                                strcpy(nome[i], n);
+                            }
+                            free(n);
+
+                            for (i = 0; i <tamArray; i++)
+                            {
+                                printf("\n%s", nome[i]);
+                            }
+
+                            }
+                            for(i=0;i<tamArray;i++){
+                                printf("\nfreeing(nome[%d])...",i);
+                                free(nome[i]);
+                                printf(" DONE!");
+                            }
+
+                            /*printf("\nTeste: Imprimir nome[%d] APOS FREE() ",i);
+                            for (i = 0; i <tamArray; i++)
+                            {
+                                printf("\n%s", nome[i]);
+                            }*/
+
+                        }
+                        break;
+                    case 5:
+
+                        /*Mais alocacao :)*/
+
+                        	t_ponto * ini_ponto;
+                            t_ponto * proximo_ponto;
+                            int resp;
+
+                            if (ini_ponto == NULL)
+                            {
+                                exit(1);
+                            }
+                            proximo_ponto = ini_ponto;
+
+                            while (1)
+                            {
+                                printf("Informe o valor de X: ");
+                                scanf("%d", &proximo_ponto->x);
+                                printf("Informe o valor de Y: ");
+                                scanf("%d", &proximo_ponto->y);
+                                printf("Deseja continuar ? <1> SIM <2> NAO: ");
+                                scanf("%d", &resp);
+                                if (resp==1)
+                                {
+                                    proximo_ponto->proximo = (t_ponto *)malloc(sizeof(t_ponto));
+                                    proximo_ponto = proximo_ponto->proximo;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            printf("\n");
+                            proximo_ponto->proximo=NULL;
+                            proximo_ponto=ini_ponto;
+                            while (proximo_ponto != NULL)
+                            {
+                                printf("X = %d, Y = %d\n", proximo_ponto->x, proximo_ponto->y);
+                                proximo_ponto=proximo_ponto->proximo;
+                            }
+
+                        break;
+
                     }
                 printf("\n\n");
                 } while(opt2!=0);
