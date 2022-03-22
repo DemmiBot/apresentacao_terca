@@ -3,7 +3,7 @@
 # apresentacao_terca
 Repositório para organização da apresentação de Estrutura de Dados e Algoritmos 2  
 
-# Operações com Vetor  
+# :heavy_check_mark: Operações com Vetor  
 
 :heavy_check_mark: Criação de um Vetor  
 
@@ -19,7 +19,7 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 :heavy_check_mark: Buscar no VETOR -David Lukas  
 
-# Operações com MATRIZ  
+# :heavy_check_mark: Operações com MATRIZ  
 
 :heavy_check_mark: Criação de uma MATRIZ -Samuel Bruce/Karla Juliane  
 
@@ -45,7 +45,7 @@ Repositório para organização da apresentação de Estrutura de Dados e Algori
 
 :heavy_check_mark: Referência para listas, pilhas, -Alleck Luka  
 
-# Exemplos:  
+# :heavy_check_mark: Exemplos:  
 
 :heavy_check_mark: Operações com Alocação Estática  
 e Alocação dinâmica -Samuel Kevin/Gabriel Felix  
