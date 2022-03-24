@@ -3,32 +3,38 @@
 #include <stdio.h>
 
 int guessGame(int randomNumber) {
-    int guess;
-    printf("TESTE %d\n", randomNumber);
-    scanf("%d", &guess);
-    if(randomNumber == guess) {
-        printf("Yup, it's %d!", randomNumber);
-        return 0;
-    } else {
-        if(guess>randomNumber) {
-            printf("Too high!\n");
+    int guess, i;
+    printf("Do you wanna play a game?", randomNumber);
+    
+    for(i=0;i<10;i++) {
+
+        printf("\nYou have %d guesses!", 10-i);
+        scanf("%d", &guess);
+        if(randomNumber == guess) {
+            printf("\nYup, it's %d!", randomNumber);
             return 1;
-        }
-        if(guess<randomNumber) {
-            printf("Too low!\n");
-            return 1;
+        } else {
+            if(guess>randomNumber) {
+                printf("\nToo high!\n");
+            }
+            if(guess<randomNumber) {
+                printf("\nToo low!\n");
+            }
         }
     }
+    printf("Commencing TOTAL ANNIHILATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! press enter to DIE!");
+    getch();
+    for(;;){
+        printf("%d", rand()%100);
+    }
+    return 0;
 }
 
 int main() {
 
     srand(time(NULL));
     int randomNumber = rand() % 101;
-    int guess, i=0;
 
-    do{
-        i++;
-    }while(guessGame(randomNumber)&&i<3);
+    guessGame(randomNumber);
 
 }
