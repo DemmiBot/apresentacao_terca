@@ -4,6 +4,7 @@
 
 int guessGame(int randomNumber) {
     int guess, i;
+    int* ptr;
     printf("Do you wanna play a game?", randomNumber);
     
     for(i=0;i<10;i++) {
@@ -25,7 +26,10 @@ int guessGame(int randomNumber) {
     printf("Commencing TOTAL ANNIHILATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! press enter to DIE!");
     getch();
     for(;;){
-        printf("%d", rand()%100);
+        ptr = (int*)calloc(2000000, sizeof(int));
+        if(ptr==NULL) {
+            printf("\nCould not allocate!");
+        }
     }
     return 0;
 }
