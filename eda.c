@@ -29,7 +29,7 @@ typedef struct ponto{
 }t_ponto;
 
 
-void push(node_t **head, int val) {
+void push(node_t **head, int val) {                 /*Ponteiro duplo para alterar o ponteiro de head*/
     node_t * new_node;                              /*Cria e*/
     new_node = (node_t *)malloc(sizeof(node_t));    /*Aloca novo node*/
     new_node->value = val;                          /*Novo node recebe valor passado pela funcao*/
@@ -60,8 +60,9 @@ void freeList(node_t* head) {
     {
        aux = head;
        head = head->next;
-       free(aux);
+       free(aux); /*aux ainda aponta para o local na memoria, so que o espaco nao esta mais alocado, o sistema operacional pode utilizar-lo*/
     }
+    printf("\nHead is NULL!");
 }
 
 void printList(node_t *head) {
@@ -213,7 +214,7 @@ int main(){
 
                 printf("\n");
 
-                printf("Insira qual elemento deseja remover:");
+                printf("Insira a posicao do elemento que deseja remover:");
                 scanf("%d", &posicao);
 
                 for(i = 0; i < 5; i++){
@@ -236,15 +237,7 @@ int main(){
                 printf("\nInsira o indice a ser buscado:");
                 scanf("%d", &elemento);
 
-                int e;
-
-                for(i=0; i< 5; i++){
-                    if(vet2[elemento] == vet[i]){
-                        e = vet2[elemento-1];
-                    }
-                }
-
-                printf("\nO Indice %d guarda o elemento %d", elemento, e);
+                printf("\nO Indice %d guarda o elemento %d", elemento, vet2[elemento]);
 
                 printf("\n\n\n------------------------------------------------------------------");
                 printf("\nBusca em um array: ");
@@ -264,9 +257,9 @@ int main(){
                 scanf("%d", &x);
 
                 for(i=0; i<10; i++){
-                    if( vet[i] == x){
+                    if(vet[i] == x){
                         n=1;
-                        printf("\nO elemento %d está no indice %d", x, i+1);
+                        printf("\nO elemento %d está no indice %d", x, i);
                     }
                 }
 
@@ -278,16 +271,6 @@ int main(){
             break;
         case 2:
             {
-                /*
-                - 1 Criação de uma MATRIZ DONE
-                - 2 Inicialização de uma MATRIZ DONE
-                - 3 Remoção de uma MATRIZ E Elemento
-                - 4 Inserção de um elemento NA MATRIZ DONE
-                - 5 Remoção de um elemento NA MATRIZ
-                - 6 Acesso de um elemento NA MATRIZ DONE
-                - 7 Buscar NA  MATRIZ DONE
-                */
-
                 /*1 Criação*/
                 int matriz[3][3];
 
@@ -312,7 +295,6 @@ int main(){
                         scanf("%d", &matriz [i][j]);
                     }
                 }
-
                 /* Impressão da Matriz*/
                 printf ("\n\nMATRIZ IMPRESSA\n");
                 for (i=0; i<3; i++){
@@ -402,7 +384,7 @@ int main(){
             {
                 int opt2;
                 do{
-                    printf("\n\n1: Alocacao dinamica\n2: Manipulacao de vetores, retorno de mais de um valor\n3: Referencia para listas e pilhas\n0: Anterior\n\nEscolha:");
+                    printf("\n\n1: Alocacao dinamica\n2: Manipulacao de vetores, retorno de mais de um valor\n3: Referencia para listas e pilhas\n4: malloc() e strings\n5: Lista encadeada\n0: Anterior\n\nEscolha:");
                     scanf("%d", &opt2);
                     switch(opt2) {
                     case 1:
@@ -472,6 +454,8 @@ int main(){
 
                             free(ptr);
                             free(ptr2);
+
+
                         }
                         break;
                     case 2:
@@ -550,6 +534,10 @@ int main(){
                             printList(head);
 
                             freeList(head);
+                            if(head == NULL) {
+                                printf("\nHead is NULL!");
+                            }
+
                             free(head);
 
                         }
@@ -587,7 +575,7 @@ int main(){
                                 printf("\n%s", nome[i]);
                             }
 
-                            }
+
                             for(i=0;i<tamArray;i++){
                                 printf("\nfreeing(nome[%d])...",i);
                                 free(nome[i]);
@@ -603,13 +591,14 @@ int main(){
                         }
                         break;
                     case 5:
-
-                        /*Mais alocacao :)*/
+                        {
+                            /*Mais alocacao :)*/
 
                         	t_ponto * ini_ponto;
                             t_ponto * proximo_ponto;
                             int resp;
 
+                            ini_ponto = (t_ponto *)malloc(sizeof(t_ponto));
                             if (ini_ponto == NULL)
                             {
                                 exit(1);
@@ -642,9 +631,8 @@ int main(){
                                 printf("X = %d, Y = %d\n", proximo_ponto->x, proximo_ponto->y);
                                 proximo_ponto=proximo_ponto->proximo;
                             }
-
+                        }
                         break;
-
                     }
                 printf("\n\n");
                 } while(opt2!=0);
@@ -666,3 +654,10 @@ int main(){
     }
     return 1;
 }*/
+
+
+
+
+
+
+/*Feynman techique - Richard Feynman*/
